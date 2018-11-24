@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu:700');
+
+body {
+    font-family: Poppins;
+    height: 100%;
+}
+
+.coverImage {
+	/* The image used */
+    background-image: url(../img/cover.png);;
+
+    /* height */
+    height: 75vh; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.sideImage {
+    /* The image used */
+    background-image: url(../img/gaming_1.png);;
+
+    /* height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.search-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-bar h1 {
+    font-size: 70px;
+    margin-bottom: 60px;
+    text-shadow: 2px 0px 3px black;
+    font-weight: 600;
+}
+
+
+footer {
+    margin: 50px 0;
+}
+
+.navbar-inverse {
+	background-color: rgba(0,0,0,0.1);
+	border-color: transparent;
+    transition: 0.5s linear;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #dbdbdb;
+}
+
+
+.navbar-fixed-top.scrolled {
+  background-color: black !important;
+  transition: background-color 0.5s linear;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-top: 25px;
+    min-height: 600px;
+    max-height: 600px;
+}
+
+.blog-content {
+    padding: 5px 20px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    width: 95%;
+}
+
+.blogHeaderImage {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.ctg-text {
+    position: absolute;
+    font-size: 16px;
+    top: 16px;
+    left: 16px;
+    padding: 5px 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    transition: 0.5s linear;
+    background-color: rgba(0,0,0,0.3);
+
+}
+
+.ctg-text:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.sidebar-text {
+    text-align: left;
+    max-width: 90%;
+    position: absolute;
+    font-size: 18px;
+    top: 64px;
+    left: 16px;
+    padding: 5px 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    transition: 0.5s linear;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 32px;
+    left: 24px;
+}
+
+
+
