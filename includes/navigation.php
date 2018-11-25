@@ -8,7 +8,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">YoloLife</a>
+                <a class="navbar-brand" href="index.php">
+                    <img src="img/logo.png" style="display: inline-block; height: 50px;">
+                    <span style="display: inline-block; color: #f8c312">YoloLife</span>
+                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -25,31 +28,19 @@
                         <ul class="dropdown-menu">
 
                         <?php
-                           $sql = "SELECT * FROM categories";
-                           $query = mysqli_query($conn, $sql);
+                        $sql = "SELECT * FROM categories";
+                        $query = mysqli_query($conn, $sql);
 
-                           while ($row = mysqli_fetch_assoc($query))
-                           {
-                               $cat_title = $row['cat_title'];
-                               echo "<li><a href='#'>{$cat_title}</a></li>";
-                           }
+                        while ($row = mysqli_fetch_assoc($query)) {
+                            $cat_title = $row['cat_title'];
+                            echo "<li><a href='category.php?category={$cat_title}&submit=done'>{$cat_title}</a></li>";
+                        }
                         ?>
-
-
-                          <!-- 
-                          <li><a href="#">Sports</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Gaming</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Technology</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Productivity</a></li> -->
-
                         </ul>
                     </li>
 
                     <li>
-                        <a href="#"><button class="btn btn-danger">Log in <span class="glyphicon glyphicon-menu-right"></span></button></a>
+                        <a href="#"><button class="btn btn-primary">Log in <span class="glyphicon glyphicon-log-in"></span></button></a>
                     </li>
                 </ul>
             </div>
