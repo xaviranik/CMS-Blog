@@ -28,52 +28,79 @@
     <div class="container">
 
         <div class="row">
-
             <!-- Blog Entries Column -->
-            <div class="col-md-4">
-                <!-- First Blog Post -->
+            <?php
+                $sql = "SELECT * FROM posts";
+                $post_query = mysqli_query($conn, $sql);
+
+                while ($row = mysqli_fetch_assoc($post_query))
+                {
+                    $post_title = $row['post_title'];
+                    $post_author = $row['post_author'];
+                    $post_date = $row['post_date'];
+                    $post_image = $row['post_image'];
+                    $post_content = $row['post_content'];
+                    $post_cat_id = $row['post_cat_id'];
+                    $post_cat_title = $row['post_cat_title'];
+
+                    if($post_cat_id == 1)
+                    {
+            ?>
+            
+            <!-- Blog Post -->
+            <div class="col-md-4">    
                 <div class="card">
                   <div class="blogHeaderImage">
-                      <img src="img/tech_1.png" alt="Avatar" style="width:100%">
-                      <div class="ctg-text">Technology</div>
+                      <img class="img-responsive" src="img/<?php echo $post_image; ?>" alt="Avatar" style="width:100%;">
+                      <div class="ctg-text"><?php echo $post_cat_title?></div>
                   </div>
 
                   <div class="blog-content">
-                    <h3><b>MacBook Pro (2018) review: Phenomenal computational power...</b></h3> 
-                    <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora </p>
-                    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <h3><b><?php echo $post_title ?></b></h3>
                     <hr>
+                    <p class="small"><span class="glyphicon glyphicon-time"></span> <?php echo "Posted on: ". $post_date; ?></p>
+                    <p class="small"><span class="glyphicon glyphicon-user"></span> <?php echo " ".$post_author; ?></p>
+                    <p class="article">
+                    <?php
+                        $length = 260;
+                        if(strlen($post_content) < $length)
+                        {
+                            echo $post_content;
+                        }
+                        else
+                        {
+                            echo substr($post_content, 0, $length)."...";
+                        }
+                    ?>
+                    </p>
+                    <a class="btn btn-primary bottom-left" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                   </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <!-- Second Blog Post -->
-                <div class="card">
-                  <div class="blogHeaderImage">
-                      <img src="img/productivity_1.png" alt="Avatar" style="width:100%">
-                      <div class="ctg-text">Productivity</div>
-                  </div>
-
-                  <div class="blog-content">
-                    <h3><b>16 Ways to Playfully Attract Abundance</b></h3> 
-                    <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora </p>
-                    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    <hr>
-                  </div>
-                </div>
-            </div>
+            <?php            
+                    }
+                    else if($post_cat_id == 2)
+                    {
+                        
+            ?>
 
             <div class="col-md-4">
             <!-- Image Blog Post -->
-                <div class="sideImage card">
-                    <div class="ctg-text">Gaming</div>
-                    <div class="sidebar-text">GET READY FOR THE 2019 SEASON OF PUBG ESPORTS</div>
+                <div class="imageBlogCover card" style="background-image: url(img/<?php echo $post_image ?>);">
+                    <div class="ctg-text"><?php echo $post_cat_title?></div>
+                    <div class="sidebar-text"><?php echo $post_title ?></div>
                     <a class="btn btn-primary bottom-left" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>
+
+            <?php            
+                    }
+                }
+            ?>        
+     
+
+            
 
         </div>
 

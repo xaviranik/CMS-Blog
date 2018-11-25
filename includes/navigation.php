@@ -49,7 +49,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><button class="btn btn-danger">Log in <span class="glyphicon glyphicon-menu-right"></span></button></a>
+                        <a href="#"><button class="btn btn-danger">Log in <span class="glyphicon glyphicon-log-in"></span></button></a>
                     </li>
                 </ul>
             </div>
