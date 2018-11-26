@@ -19,12 +19,41 @@
             </div>
         </div>
     </div>
-    
-    
+
     <!-- Navigation -->
 <?php
     require_once 'includes/navigation.php';
-?>   
+?>
+
+    <!-- Search Engine Code -->
+            <?php
+                if(isset($_GET['submit']))
+                {
+                    $search_string = $_GET['search'];
+
+                    if(!empty($search_string))
+                    {
+                        $search_sql = "SELECT * FROM posts WHERE post_tags LIKE '%$search_string%'";
+
+                        $search_query = mysqli_query($conn, $search_sql);
+
+                        if(!$search_query)
+                        {
+                            die("Query Failed: ". mysqli_error($conn));
+                        }
+                        else
+                        {
+                            $count = mysqli_num_rows($search_query);
+
+                            if($count == 0)
+                            {
+                                
+                            }
+                            else
+                            {
+                                
+
+            ?>   
 
     <!-- Page Content -->
     <div class="container">
@@ -32,10 +61,8 @@
         <div class="row">
             <!-- Blog Entries Column -->
             <?php
-                $sql = "SELECT * FROM posts";
-                $post_query = mysqli_query($conn, $sql);
 
-                while ($row = mysqli_fetch_assoc($post_query))
+                while ($row = mysqli_fetch_assoc($search_query))
                 {
                     $post_title = $row['post_title'];
                     $post_author = $row['post_author'];
@@ -44,6 +71,8 @@
                     $post_content = $row['post_content'];
                     $post_cat_id = $row['post_cat_id'];
                     $post_cat_title = $row['post_cat_title'];
+
+                    $_POST['submit'] = "";
 
                     if($post_cat_id == 1)
                     {
@@ -110,6 +139,16 @@
             
 
         </div>
+            
+            <?php
+                            }
+                        }
+                    }    
+                }
+            ?>
+    
+    
+
 
         <!-- Pager -->
         <ul class="pager">
