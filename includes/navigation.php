@@ -34,17 +34,6 @@
                                echo "<li><a href='#'>{$cat_title}</a></li>";
                            }
                         ?>
-
-
-                          <!-- 
-                          <li><a href="#">Sports</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Gaming</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Technology</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Productivity</a></li> -->
-
                         </ul>
                     </li>
 

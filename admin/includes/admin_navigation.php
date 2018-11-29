@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">YoloLife Admin</a>
+                <a class="navbar-brand" href="index.php">YoloLife | Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -38,10 +38,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="index.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#user_dropdown"><i class="fas fa-users"></i> User <i class="fas fa-chevron-circle-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#user_dropdown"><i class="fas fa-users"></i> Users <i class="fas fa-chevron-circle-down"></i></a>
                         <ul id="user_dropdown" class="collapse">
                             <li>
                                 <a href="#">View all posts</a>
@@ -63,7 +63,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fas fa-th"></i> Categories</a>
+                        <a href="categories.php"><i class="fas fa-th"></i> Categories</a>
                     </li>
                     <li>
                         <a href="#"><i class="fas fa-comment-dots"></i> Comments</a>
