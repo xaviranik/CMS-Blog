@@ -62,6 +62,7 @@ function show_category_table()
     global $conn;
     $sql = "SELECT * FROM categories";
     $cat_query = mysqli_query($conn, $sql);
+    
     while ($row = mysqli_fetch_assoc($cat_query))
     {
         $cat_id = $row['cat_id'];

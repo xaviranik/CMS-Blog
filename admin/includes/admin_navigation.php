@@ -19,7 +19,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <i class="fas fa-chevron-circle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile </a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
 
                         <li>
@@ -29,7 +29,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log out</a>
                         </li>
                     </ul>
                 </li>
@@ -44,10 +44,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#user_dropdown"><i class="fas fa-users"></i> Users <i class="fas fa-chevron-circle-down"></i></a>
                         <ul id="user_dropdown" class="collapse">
                             <li>
-                                <a href="#">View all posts</a>
+                                <a href="#">View all users</a>
                             </li>
                             <li>
-                                <a href="#">Add new post</a>
+                                <a href="#">New users</a>
                             </li>
                         </ul>
                     </li>
@@ -55,10 +55,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#post_dropdown"><i class="fa fa-fw fa-file"></i> Posts <i class="fas fa-chevron-circle-down"></i></a>
                         <ul id="post_dropdown" class="collapse">
                             <li>
-                                <a href="#">View all posts</a>
+                                <a href="./posts.php">View all posts</a>
                             </li>
                             <li>
-                                <a href="#">Add new post</a>
+                                <a href="./posts.php?source=add_post">Add new post</a>
                             </li>
                         </ul>
                     </li>

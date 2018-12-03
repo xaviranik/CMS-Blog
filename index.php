@@ -42,10 +42,10 @@
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
-                    $post_cat_id = $row['post_cat_id'];
+                    $post_type = $row['post_type'];
                     $post_cat_title = $row['post_cat_title'];
 
-                    if($post_cat_id == 1)
+                    if($post_type == "Default")
                     {
             ?>
             
@@ -82,7 +82,7 @@
 
             <?php            
                     }
-                    else if($post_cat_id == 2)
+                    else if($post_type == "Imageview")
                     {
                         
             ?>
