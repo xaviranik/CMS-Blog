@@ -17,34 +17,41 @@ if(isset($_POST['create_post']))
     $post_image_temp = $_FILES['post_image']['tmp_name'];
     
     //Checking the uploaded file and moving the uploaded image to 'img' folder
-    $check = getimagesize($post_image_temp);
-
-    if($check !== false)
+    if(!empty($post_image))
     {
-      move_uploaded_file($post_image_temp, "../img/$post_image");
+      $check = getimagesize($post_image_temp);
+
+      if($check !== false)
+      {
+        move_uploaded_file($post_image_temp, "../img/$post_image");
+        //SQL for inserting data into the DB
+        $sql = "INSERT INTO posts (post_title, post_author, post_cat_title, post_type, post_status, post_tags, post_content, post_date, post_comment_count, post_image) VALUES";
+
+        $sql .= "('{$post_title}', '{$post_author}', '{$post_category}', '{$post_type}', '{$post_status}', '{$post_tags}', '{$post_content}', now() , '{$post_comment_count}', '{$post_image}')";
+
+        $add_post_query = mysqli_query($conn, $sql);
+
+        if($add_post_query)
+        {
+          echo "<div class='alert alert-success'>Post Added successfully!</div>";
+        }
+        else
+        {
+          echo "<div class='alert alert-danger'>Failed to add the post!</div>";
+        }
+      }
+      else
+      {
+        echo "<div class='alert alert-danger'>Image Upload Failed!</div>";
+      }
+
     }
     else
     {
-      echo "<div class='alert alert-danger'>Image Upload Failed!</div>";
+      echo "<div class='alert alert-danger'>Post Image can't be blank!</div>";
     }
-
     
-    
-    //SQL for inserting data into the DB
-    $sql = "INSERT INTO posts (post_title, post_author, post_cat_title, post_type, post_status, post_tags, post_content, post_date, post_comment_count, post_image) VALUES";
 
-    $sql .= "('{$post_title}', '{$post_author}', '{$post_category}', '{$post_type}', '{$post_status}', '{$post_tags}', '{$post_content}', now() , '{$post_comment_count}', '{$post_image}')";
-
-    $add_post_query = mysqli_query($conn, $sql);
-
-    if($add_post_query)
-    {
-      echo "<div class='alert alert-success'>Post Added successfully!</div>";
-    }
-    else
-    {
-      echo "<div class='alert alert-danger'>Failed to add the post!</div>";
-    }
 }
 
 ?>
@@ -62,16 +69,21 @@ if(isset($_POST['create_post']))
   <div class="form-group">
     <label for="post_category">Post Category</label>
     <select class="form-control" name="post_category">
-      <option>Gaming</option>
-      <option>Lifestyle</option>
-      <option>Technology</option>
-      <option>Travel</option>
-      <option>Productivity</option>
+    <?php
+        $sql = "SELECT * FROM categories";
+        $query = mysqli_query($conn, $sql);
+
+        while ($row = mysqli_fetch_assoc($query))
+        {
+            $cat_title = $row['cat_title'];
+            echo "<option>{$cat_title}</option>";
+        }
+    ?>
     </select>
   </div>
 
   <div class="form-group">
-    <label for="post_type">Post Category</label>
+    <label for="post_type">Post Type</label>
     <select class="form-control" name="post_type">
       <option>Default</option>
       <option>Imageview</option>

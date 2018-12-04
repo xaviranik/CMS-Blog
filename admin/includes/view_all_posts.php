@@ -11,6 +11,7 @@
             <th class="text-center">Tags</th>
             <th class="text-center">Comments</th>
             <th class="text-center">Status</th>
+            <th class="text-center">Actions</th>
         </tr>
     </thead>
 
@@ -43,8 +44,31 @@
                 echo "<td>{$post_tags}</td>";
                 echo "<td>{$post_comment_count}</td>";
                 echo "<td>{$post_status}</td>";
+                echo "<td><a class='btn btn-primary' href='posts.php?source=edit_post&edit_post_id={$post_id}'>Edit <i class='fas fa-edit'></i></a> <a class='btn btn-danger' href='posts.php?delete_post={$post_id}'>Delete</a></td>";
                 echo "</tr>";
             }    
         ?>
     </tbody>
 </table>
+
+<?php
+    if(isset($_GET['delete_post']))
+    {
+        $delete_post_id = $_GET['delete_post'];
+
+        $sql = "DELETE FROM posts WHERE post_id = {$delete_post_id}";
+
+        $delete_post_query = mysqli_query($conn, $sql);
+
+        if($delete_post_query)
+        {
+            header("Location: ./posts.php");
+        }
+        else
+        {
+            echo "<div class='alert alert-danger'>Action failed!</div>";
+        }
+
+    }
+
+?>
