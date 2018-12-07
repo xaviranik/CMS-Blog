@@ -2,24 +2,6 @@
     require_once 'includes/header.php';
 ?>
 
-    <!-- Cover Image -->
-    <div class="coverImage">
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <h1>Let's talk YoloLife!</h1>
-            <div class="col-md-12">
-                <form action="search.php" method="get">
-                <div class="input-group">
-                  <input name="search" type="text" class="form-control" placeholder="Search blogs...">
-                  <span class="input-group-btn">
-                    <button name="submit" class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                  </span>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- Navigation -->
 <?php
     require_once 'includes/navigation.php';
@@ -29,10 +11,14 @@
             <?php
                 if(isset($_GET['submit']))
                 {
-                    $search_string = $_GET['search'];
-
-                    if(!empty($search_string))
+                    if(empty($_GET['search']) || $_GET['search'] == "")
                     {
+                        header("Location: index.php");
+                    }
+                    else
+                    {
+                        $search_string = $_GET['search'];
+                        
                         $search_sql = "SELECT * FROM posts WHERE post_tags LIKE '%$search_string%'";
 
                         $search_query = mysqli_query($conn, $search_sql);
@@ -47,7 +33,7 @@
 
                             if($count == 0)
                             {
-                                
+                                echo "No post";
                             }
                             else
                             {
@@ -69,12 +55,12 @@
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
-                    $post_cat_id = $row['post_cat_id'];
+                    $post_type = $row['post_type'];
                     $post_cat_title = $row['post_cat_title'];
 
                     $_POST['submit'] = "";
 
-                    if($post_cat_id == 1)
+                    if($post_type == "Default")
                     {
             ?>
             
@@ -111,7 +97,7 @@
 
             <?php            
                     }
-                    else if($post_cat_id == 2)
+                    else if($post_type == "Imageview")
                     {
                         
             ?>

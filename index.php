@@ -1,26 +1,6 @@
 <?php
     require_once 'includes/header.php';
-?>
-
-    <!-- Cover Image -->
-    <div class="coverImage">
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <h1>Let's talk YoloLife!</h1>
-            <div class="col-md-12">
-                <form action="search.php" method="get">
-                <div class="input-group">
-                  <input name="search" type="text" class="form-control" placeholder="Search blogs...">
-                  <span class="input-group-btn">
-                    <button name="submit" class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                  </span>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    
+?>  
     <!-- Navigation -->
 <?php
     require_once 'includes/navigation.php';

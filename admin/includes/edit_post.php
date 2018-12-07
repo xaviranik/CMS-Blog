@@ -89,7 +89,7 @@
     <label for="post_status">Post Status</label>
     <select class="form-control" name="post_status">
     
-      <option value=""><?php echo $post_status ?></option>
+      <option value="<?php echo $post_status ?>"><?php echo $post_status ?></option>
 
       <?php
         if($post_status == "Draft")

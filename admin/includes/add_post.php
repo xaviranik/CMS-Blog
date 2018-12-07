@@ -8,7 +8,7 @@ if(isset($_POST['create_post']))
     $post_type = $_POST['post_type'];
     $post_status = $_POST['post_status'];
     $post_tags = $_POST['post_tags'];
-    $post_content = $_POST['post_content'];
+    $post_content = mysqli_real_escape_string($conn,$_POST['post_content']);
 
     $post_date = date('d-m-y');
     $post_comment_count = 4;
@@ -38,6 +38,7 @@ if(isset($_POST['create_post']))
         else
         {
           echo "<div class='alert alert-danger'>Failed to add the post!</div>";
+          // echo "".mysqli_error($conn);
         }
       }
       else

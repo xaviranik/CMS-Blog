@@ -31,7 +31,7 @@
                            while ($row = mysqli_fetch_assoc($query))
                            {
                                $cat_title = $row['cat_title'];
-                               echo "<li><a href='#'>{$cat_title}</a></li>";
+                               echo "<li><a href='search.php?category={$cat_title}&submit=done'>{$cat_title}</a></li>";
                            }
                         ?>
                         </ul>
