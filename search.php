@@ -7,6 +7,26 @@
     require_once 'includes/navigation.php';
 ?>
 
+<!-- Cover Image -->
+<div class="coverImage" style="height: 50vh;">
+        <!-- Search Bar -->
+    <div class="search-bar">
+        <h1>Let's talk YoloLife!</h1>
+        <div class="col-md-12">
+            <form action="search.php" method="get">
+                <div class="input-group">
+                    <input name="search" type="text" class="form-control" placeholder="Search blogs...">
+                    <span class="input-group-btn">
+                    <button name="submit" class="btn btn-primary" type="submit" value="done"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
     <!-- Search Engine Code -->
             <?php
                 if(isset($_GET['submit']))
@@ -33,7 +53,9 @@
 
                             if($count == 0)
                             {
-                                echo "No post";
+                                echo "<div class='container'>
+                                        <h1 class='text-center text-danger' style='height: 400px; margin-top: 50px;'><i class='fas fa-exclamation-circle'></i> No post found!</h1>
+                                      </div>";
                             }
                             else
                             {
@@ -50,6 +72,7 @@
 
                 while ($row = mysqli_fetch_assoc($search_query))
                 {
+                    $post_id = $row['post_id'];
                     $post_title = $row['post_title'];
                     $post_author = $row['post_author'];
                     $post_date = $row['post_date'];
@@ -90,7 +113,7 @@
                         }
                     ?>
                     </p>
-                    <a class="btn btn-primary bottom-left" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-primary bottom-left" href="post.php?post_id=<?php echo $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                   </div>
                 </div>
             </div>
@@ -112,7 +135,7 @@
                         <p class="small"><span class="glyphicon glyphicon-time"></span> <?php echo "Posted on:  ". $post_date; ?></p>
                         <p class="small"><span class="glyphicon glyphicon-user"></span> <?php echo "  ".$post_author; ?></p>
                     </div>
-                    <a class="btn btn-primary bottom-left" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-primary bottom-left" href="post.php?post_id=<?php echo $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>
 
