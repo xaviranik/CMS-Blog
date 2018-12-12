@@ -1,13 +1,13 @@
 <?php
     require_once 'includes/header.php';
-?>  
+?>
     <!-- Navigation -->
 <?php
     require_once 'includes/navigation.php';
 ?>
 
 <!-- Cover Image -->
-<div class="coverImage">
+  <div class="coverImage">
         <!-- Search Bar -->
     <div class="search-bar">
         <h1>Let's talk YoloLife!</h1>
@@ -47,9 +47,9 @@
                     if($post_type == "Default")
                     {
             ?>
-            
+
             <!-- Blog Post -->
-            <div class="col-md-4">    
+            <div class="col-md-4">
                 <div class="card">
                   <div class="blogHeaderImage">
                       <img class="img-responsive" src="img/<?php echo $post_image; ?>" alt="Avatar" style="width:100%;">
@@ -79,11 +79,11 @@
                 </div>
             </div>
 
-            <?php            
+            <?php
                     }
                     else if($post_type == "Imageview")
                     {
-                        
+
             ?>
 
             <div class="col-md-4">
@@ -100,13 +100,13 @@
                 </div>
             </div>
 
-            <?php            
+            <?php
                     }
                 }
-            ?>        
-     
+            ?>
 
-            
+
+
 
         </div>
 

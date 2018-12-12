@@ -107,6 +107,7 @@
   <div class="form-group">
     <label for="post_category">Post Category</label>
     <select class="form-control" name="post_category">
+      <option value="<?php echo $post_cat_title ?>"><?php echo $post_cat_title ?></option>
     <?php
         $sql = "SELECT * FROM categories";
         $query = mysqli_query($conn, $sql);
@@ -114,7 +115,11 @@
         while ($row = mysqli_fetch_assoc($query))
         {
             $cat_title = $row['cat_title'];
-            echo "<option value = '{$cat_title}'>{$cat_title}</option>";
+            if($cat_title !== $post_cat_title)
+            {
+              echo "<option value = '{$cat_title}'>{$cat_title}</option>";
+            }
+            
         }
     ?>
     </select>
@@ -123,8 +128,17 @@
   <div class="form-group">
     <label for="post_type">Post Type</label>
     <select class="form-control" name="post_type">
-      <option>Default</option>
-      <option>Imageview</option>
+      <option value="<?php echo $post_type ?>"><?php echo $post_type ?></option>
+      <?php
+        if($post_type == "Default")
+        {
+          echo "<option value='Imageview'>Imageview</option>";
+        }
+        else
+        {
+          echo "<option value='Default'>Default</option>";
+        }
+      ?>
     </select>
   </div>
 

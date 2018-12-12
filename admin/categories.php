@@ -38,7 +38,7 @@
                     <?php
                         if(isset($_GET['update_cat']))
                         {
-                            include_once "update_categories.php";
+                            include_once "includes/update_categories.php";
                         }
                     ?>
 
