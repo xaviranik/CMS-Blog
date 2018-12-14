@@ -11,11 +11,10 @@ if(isset($_POST['create_post']))
     $post_content = mysqli_real_escape_string($conn,$_POST['post_content']);
 
     $post_date = date('d-m-y');
-    $post_comment_count = 4;
-    
+
     $post_image = $_FILES['post_image']['name'];
     $post_image_temp = $_FILES['post_image']['tmp_name'];
-    
+
     //Checking the uploaded file and moving the uploaded image to 'img' folder
     if(!empty($post_image))
     {
@@ -25,9 +24,9 @@ if(isset($_POST['create_post']))
       {
         move_uploaded_file($post_image_temp, "../img/$post_image");
         //SQL for inserting data into the DB
-        $sql = "INSERT INTO posts (post_title, post_author, post_cat_title, post_type, post_status, post_tags, post_content, post_date, post_comment_count, post_image) VALUES";
+        $sql = "INSERT INTO posts (post_title, post_author, post_cat_title, post_type, post_status, post_tags, post_content, post_date, post_image) VALUES";
 
-        $sql .= "('{$post_title}', '{$post_author}', '{$post_category}', '{$post_type}', '{$post_status}', '{$post_tags}', '{$post_content}', now() , '{$post_comment_count}', '{$post_image}')";
+        $sql .= "('{$post_title}', '{$post_author}', '{$post_category}', '{$post_type}', '{$post_status}', '{$post_tags}', '{$post_content}', now() , '{$post_image}')";
 
         $add_post_query = mysqli_query($conn, $sql);
 
@@ -38,7 +37,7 @@ if(isset($_POST['create_post']))
         else
         {
           echo "<div class='alert alert-danger'>Failed to add the post!</div>";
-          // echo "".mysqli_error($conn);
+          echo "".mysqli_error($conn);
         }
       }
       else
@@ -51,7 +50,7 @@ if(isset($_POST['create_post']))
     {
       echo "<div class='alert alert-danger'>Post Image can't be blank!</div>";
     }
-    
+
 
 }
 
@@ -110,7 +109,7 @@ if(isset($_POST['create_post']))
     <label for="post_image">Post Image</label>
     <input type="file" class="form-control-file" name="post_image">
   </div>
-  
+
   <div class="form-group">
     <label for="post_content">Post Content</label>
     <textarea class="form-control" name="post_content" rows="15"></textarea>

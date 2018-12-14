@@ -66,7 +66,7 @@
                         <a href="categories.php"><i class="fas fa-th"></i> Categories</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fas fa-comment-dots"></i> Comments</a>
+                        <a href="./comments.php"><i class="fas fa-comment-dots"></i> Comments</a>
                     </li>
                 </ul>
             </div>

@@ -6,7 +6,7 @@
       if($callback == "success")
       {
         echo "<div class='alert alert-success'>Post updated successfully!</div>";
-      }      
+      }
     }
 
     if(isset($_GET['edit_post_id']))
@@ -18,7 +18,7 @@
 
         while ($row = mysqli_fetch_assoc($edit_post_query))
         {
-            $post_title = $row['post_title'];                                   
+            $post_title = $row['post_title'];
             $post_author = $row['post_author'];
             $post_cat_title = $row['post_cat_title'];
             $post_type = $row['post_type'];
@@ -41,8 +41,8 @@
       $post_type = $_POST['post_type'];
       $post_status = $_POST['post_status'];
       $post_tags = $_POST['post_tags'];
-      $post_content = $_POST['post_content']; 
-      
+      $post_content = mysqli_real_escape_string($conn, $_POST['post_content']);
+
       $post_image = $_FILES['post_image']['name'];
       $post_image_temp = $_FILES['post_image']['tmp_name'];
 
@@ -79,7 +79,7 @@
       }
     }
 
-        
+
 ?>
 
 
@@ -88,7 +88,7 @@
   <div class="form-group">
     <label for="post_status">Post Status</label>
     <select class="form-control" name="post_status">
-    
+
       <option value="<?php echo $post_status ?>"><?php echo $post_status ?></option>
 
       <?php
@@ -119,7 +119,7 @@
             {
               echo "<option value = '{$cat_title}'>{$cat_title}</option>";
             }
-            
+
         }
     ?>
     </select>
@@ -167,7 +167,7 @@
     <label for="post_image">Change Post Image</label>
     <input type="file" class="form-control-file" name="post_image">
   </div>
-  
+
   <div class="form-group">
     <label for="post_content">Post Content</label>
     <textarea class="form-control" name="post_content" rows="15"><?php echo $post_content; ?></textarea>

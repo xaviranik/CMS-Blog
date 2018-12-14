@@ -30,7 +30,7 @@
         <div class="row">
             <!-- Blog Entries Column -->
             <?php
-                $sql = "SELECT * FROM posts";
+                $sql = "SELECT * FROM posts WHERE post_status = 'Published'";
                 $post_query = mysqli_query($conn, $sql);
 
                 while ($row = mysqli_fetch_assoc($post_query))
@@ -63,7 +63,7 @@
                     <p class="small"><span class="glyphicon glyphicon-user"></span> <?php echo " ".$post_author; ?></p>
                     <p class="article">
                     <?php
-                        $length = 260;
+                        $length = 150;
                         if(strlen($post_content) < $length)
                         {
                             echo $post_content;
