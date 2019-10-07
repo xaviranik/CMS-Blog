@@ -1,2 +1,2 @@
 # CMS-Blog
-#This is a dynamic CMS blog made with Core PHP.
+#This is a dynamic CMS blog made with vanilla PHP.
